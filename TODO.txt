@@ -1,0 +1,3 @@
+Neki od sledecih koraka rada: 
+- Izbrisati orbiter, inery-ship, a config mapirati unutar aplikacije, 
+- Srediti fodlere za slicne python skripte 

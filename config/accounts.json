@@ -7,11 +7,6 @@
     },
     "SYSTEM_ACCOUNTS": [
         {
-            "NAME": "inery.bpay",
-            "PRIVATE_KEY": "5K3NeXCDwC8PfsrMX79FDrGPouqxcqwdTkbEfHtiFUg1poZ1Jic",
-            "PUBLIC_KEY": "INE6xNjpX1vHwx4wQxsZkiK5BPfy7EjgtDbcb8HkH79EBxkj1m33W"
-        },
-        {
             "NAME": "inery.msig",
             "PRIVATE_KEY": "5JPttrUYhCm1hKYheusmC2zHPD2wM69uQQik9x6z57wyg1ELJmt",
             "PUBLIC_KEY": "INE5oauhzSCTyd2jJ79guuKmCGdinLxUtXZyddQWVqVirB6ThytZ4"
@@ -25,11 +20,6 @@
             "NAME": "inery.ram",
             "PRIVATE_KEY": "5K9Jp7uZ6jcFJVPkhRbYfD4zFyLMixfYo3jmqR3kxtuTXG2avB2",
             "PUBLIC_KEY": "INE7qyUF4hW838d8HEWQFemWvWPF3gPtG4ehinXs1kGkqb5c9j38n"
-        },
-        {
-            "NAME": "inery.saving",
-            "PRIVATE_KEY": "5KG95ok1VZyvB2aTyaaS2meeYKY49wNe7cWYiWHv72iif4f6dXy",
-            "PUBLIC_KEY": "INE6SkBpYupgRtAvFTXitEWtnL1EXH9Z1htAsWBswCPJZny51X5qi"
         },
         {
             "NAME": "inery.stake",

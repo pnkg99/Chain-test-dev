@@ -1,0 +1,150 @@
+{
+    "____comment": "This file was generated with inery-abigen. DO NOT EDIT ",
+    "version": "inery::abi/1.2",
+    "types": [],
+    "structs": [
+        {
+            "name": "adddatabase",
+            "base": "",
+            "fields": [
+                {
+                    "name": "db_name",
+                    "type": "name"
+                },
+                {
+                    "name": "chain_name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "database",
+            "base": "",
+            "fields": [
+                {
+                    "name": "db_name",
+                    "type": "name"
+                },
+                {
+                    "name": "chain_name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "hsh",
+            "base": "",
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "nodeurl",
+            "base": "",
+            "fields": [
+                {
+                    "name": "rpc_url",
+                    "type": "string"
+                },
+                {
+                    "name": "chain_name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "regsidechain",
+            "base": "",
+            "fields": [
+                {
+                    "name": "chain_name",
+                    "type": "string"
+                },
+                {
+                    "name": "rpc_url",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "remsidechain",
+            "base": "",
+            "fields": [
+                {
+                    "name": "chain_name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "sidechain",
+            "base": "",
+            "fields": [
+                {
+                    "name": "chain_name",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "adddatabase",
+            "type": "adddatabase",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "hsh",
+            "type": "hsh",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "regsidechain",
+            "type": "regsidechain",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "remsidechain",
+            "type": "remsidechain",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "databases",
+            "type": "database",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "nodeurls",
+            "type": "nodeurl",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "sidechains",
+            "type": "sidechain",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "kv_tables": {},
+    "ricardian_clauses": [],
+    "variants": [],
+    "action_results": []
+}

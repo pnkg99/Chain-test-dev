@@ -1,0 +1,105 @@
+{
+    "____comment": "This file was generated with inery-abigen. DO NOT EDIT ",
+    "version": "inery::abi/1.2",
+    "types": [],
+    "structs": [
+        {
+            "name": "addrecord",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "deleterecord",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "record",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "data",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "updaterecord",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "new_data",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "addrecord",
+            "type": "addrecord",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "deleterecord",
+            "type": "deleterecord",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "updaterecord",
+            "type": "updaterecord",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "records",
+            "type": "record",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "kv_tables": {},
+    "ricardian_clauses": [],
+    "variants": [],
+    "action_results": []
+}

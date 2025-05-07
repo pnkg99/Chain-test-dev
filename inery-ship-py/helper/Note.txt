@@ -1,0 +1,173 @@
+       {
+            "name": "block_header",
+            "fields": [
+                {
+                    "name": "timestamp",
+                    "type": "block_timestamp_type"
+                },
+                {
+                    "name": "master",
+                    "type": "name"
+                },
+                {
+                    "name": "confirmed",
+                    "type": "uint16"
+                },
+                {
+                    "name": "previous",
+                    "type": "checksum256"
+                },
+                {
+                    "name": "transaction_mroot",
+                    "type": "checksum256"
+                },
+                {
+                    "name": "action_mroot",
+                    "type": "checksum256"
+                },
+                {
+                    "name": "schedule_version",
+                    "type": "uint32"
+                },
+                {
+                    "name": "new_masters",
+                    "type": "master_schedule?"
+                },
+                {
+                    "name": "header_extensions",
+                    "type": "extension[]"
+                }
+            ]
+        }
+        {
+            "name": "signed_block_header",
+            "base": "block_header",
+            "fields": [
+                {
+                    "name": "master_signature",
+                    "type": "signature"
+                }
+            ]
+        },
+        {
+            "name": "signed_block_v0",
+            "base": "signed_block_header",
+            "fields": [
+                {
+                    "name": "transactions",
+                    "type": "transaction_receipt_v0[]"
+                },
+                {
+                    "name": "block_extensions",
+                    "type": "extension[]"
+                }
+            ]
+        },
+            "name": "get_blocks_result_v1",
+            "base": "get_blocks_result_base",
+            "fields": [
+                {
+                    "name": "block",
+                    "type": "signed_block_variant?"
+                },
+                {
+                    "name": "traces",
+                    "type": "bytes"
+                },
+                {
+                    "name": "deltas",
+                    "type": "bytes"
+                }
+            ]
+
+        {
+            "name": "get_blocks_result_base",
+            "fields": [
+                {
+                    "name": "head",
+                    "type": "block_position"
+                },
+                {
+                    "name": "last_irreversible",
+                    "type": "block_position"
+                },
+                {
+                    "name": "this_block",
+                    "type": "block_position?"
+                },
+                {
+                    "name": "prev_block",
+                    "type": "block_position?"
+                }
+            ]
+        },
+
+        {
+            "name": "get_blocks_result_v0",
+            "base": "get_blocks_result_base",
+            "fields": [
+                {
+                    "name": "block",
+                    "type": "bytes?"
+                },
+                {
+                    "name": "traces",
+                    "type": "bytes?"
+                },
+                {
+                    "name": "deltas",
+                    "type": "bytes?"
+                }
+            ]
+        },
+
+*block_header
+
+1   timestamp                           4 bajta uint32 
+2   master  name                        8 bajta uint64
+3   confirmed                           2 bajta uint16
+4   previous                            32 bajta checksum256
+5   transaction_mroot                   32 bajta checksum256
+6   action_mroot                        32 bajta checksum256
+7   schedule_version                    4 bajta uint32
+8   new_masters master_schedule?        Varijabilno Opcionalno, prisustvo zavisi od podataka, min 0 B
+9   header_extensions   extension[]     Varijabilno Niz proširenja, može biti prazan, min 1 bajt (broj elemenata)
+
+* signed_block_header
+
+10 master_signature                     65 bajta K1 signature
+
+*signed_block_v0
+
+11  transactions: transaction_receipt_v0[]  min 1bajt
+12  block_extensions : extension[]          min 1bajt
+    
+
+
+razclanjavamo ostatak za block 2: 
+hex_ostatak = 01bb6ccd5e00000000007fd574000000000001846cfe1e2f6205788965711caa154aefd1addee7b8cf999a96ea3a6c00000000000000000000000000000000000000000000000000000000000000001a6271546b02403b4319f7578c9bc993e42c7bda7f94294cfa9b478d20382b8f000000000000001f6954a28316a57b23d3a9bc4a41ad8e4c67fc1f3e6f9e8cdce0f841bb4bde5dc6675574a854253dbd867c1a66122cc6d3f927eb78c6d7c6248d1ad37166bd4040020000cf0201006ab925d08f74e1196ec9063c55fbcc93b8703b582207eca91b91d3b8c4a96ee3006400000000000000000000000000000000000000000001010100010000000000007fd5747fa770ba9303752d8dc970ae45026b41fbcb714a2c17beb7f1ce1d96c769a349010000000000000001000000000000000100000000007fd5740100000000000000000000000000007fd57400000000007fd57400000000221acfa40100000000007fd57400000000a8ed32327400464e5c00000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008dba66945d29426d7a01aca33a4ead61c06f614d6d55f93dce3902484fe2d911000000000000000000000000000000000000000000000000000101def9d36701002f620578000000000103000000
+duzina ostatka = 1048
+=======================================================================================================
+- da li blok posotji   :  01                                                                  2
+- timestamp :             bb6ccd5e                                                            8
+- master:                 00000000007fd574                                                    16
+- confirmed :             0000                                                                4
+- previous :              00000001846cfe1e2f6205788965711caa154aefd1addee7b8cf999a96ea3a6c    64
+- transaction_mroot:      0000000000000000000000000000000000000000000000000000000000000000    64
+- action_mroot:           1a6271546b02403b4319f7578c9bc993e42c7bda7f94294cfa9b478d20382b8f    64
+- schedule_version:       00000000                                                            8
+- new_masters master_schedule         00                                                      2
+- header_extensions                   00                                                      2
+--------------------------------------------------------------------------------------------------
+# block_header u ovom slucaju samo bajt po flagu                                              232 hex-a
+=======================================================================================================
+- master_signature        001f6954a28316a57b23d3a9bc4a41ad8e4c67fc1f3e6f9e8cdce0f841bb4bde5dc6675574a854253dbd867c1a66122cc6d3f927eb78c6d7c6248d1ad37166bd404002  130
+---------------------------------------------------------------------------------------------------
+# signed_block_header                                                                         462 hex-a 
+=======================================================================================================
+- transactions                        00                                                      2
+- block_extensions                    00                                                      2
+----------------------------------------------------------------------------------------------------
+# signed_block_v0                                                                               466 hex-a
+=======================================================================================================
+cf0201006ab925d08f74e1196ec9063c55fbcc93b8703b582207eca91b91d3b8c4a96ee3006400000000000000000000000000000000000000000001010100010000000000007fd5747fa770ba9303752d8dc970ae45026b41fbcb714a2c17beb7f1ce1d96c769a349010000000000000001000000000000000100000000007fd5740100000000000000000000000000007fd57400000000007fd57400000000221acfa40100000000007fd57400000000a8ed32327400464e5c00000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008dba66945d29426d7a01aca33a4ead61c06f614d6d55f93dce3902484fe2d911000000000000000000000000000000000000000000000000000101def9d36701002f620578000000000103000000
